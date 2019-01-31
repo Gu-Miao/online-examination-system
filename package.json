@@ -1,0 +1,32 @@
+{
+    "name": "online_examination_system",
+    "version": "0.0.1",
+    "description": "A examination system online based on Node.js",
+    "main": "./bin/www",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Gu-Miao/online_examination_system.git"
+    },
+    "keywords": [
+        "examination",
+        "Node.js",
+        "express"
+    ],
+    "author": "HikamaiC",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Gu-Miao/online_examination_system/issues"
+    },
+    "homepage": "https://github.com/Gu-Miao/online_examination_system#readme",
+    "dependencies": {
+        "cookie-parser": "1.4.3",
+        "debug": "2.6.9",
+        "ejs": "2.5.7",
+        "express": "4.16.0",
+        "http-errors": "1.6.2",
+        "morgan": "1.9.0"
+    }
+}
