@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.dropdown {
+    display: inline-block;
+}
+
 body {
     background-color: #eee;
 }
@@ -32,15 +36,20 @@ h1.log-title {
     margin-bottom: 20px;
 }
 
-/* 登录文本 */
-.log-text {
+/* 忘记密码 */
+#forget-password {
     font-size: 14px;
-    color: #08c;
-    cursor: pointer;
+    color: #09d;
     user-select: none;
-    -moz-user-select: none;
     -webkit-user-select: none;
+    -moz-user-select: none;
     -ms-user-select: none;
+    cursor: pointer;
+    margin: 7px;   
+}
+
+#forget-password:hover {
+    color: #07b;
 }
 
 /* 验证码 */
