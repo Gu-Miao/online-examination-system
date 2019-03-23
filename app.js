@@ -1,11 +1,15 @@
+// 加载模块
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// 加载路由
 var indexRouter = require('./routes/index');
 var teacherHomeRouter = require('./routes/teacherHome');
+var studentHomeRouter = require('./routes/studentHome');
+var administratorHomeRouter = require('./routes/administratorHome');
 
 var app = express();
 
@@ -19,8 +23,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// use 路由中间件
 app.use('/', indexRouter);
 app.use('/teacherHome', teacherHomeRouter);
+app.use('/studentHome', studentHomeRouter);
+app.use('/administratorHome', administratorHomeRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
