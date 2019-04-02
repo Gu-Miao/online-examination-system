@@ -4,37 +4,39 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let bodyParser = require('body-parser');
 
 // 加载路由
 var indexRouter = require('./routes/index');
 var teacherHomeRouter = require('./routes/teacherHome');
 var studentHomeRouter = require('./routes/studentHome');
-var administratorHomeRouter = require('./routes/administratorHome');
+var managerHomeRouter = require('./routes/managerHome');
 
 var app = express();
 
-// view engine setup
+// 注册模板引擎
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// 注册中间件
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// use 路由中间件
+app.use(bodyParser.urlencoded({ extended: false }));
+// 注册路由
 app.use('/', indexRouter);
 app.use('/teacherHome', teacherHomeRouter);
 app.use('/studentHome', studentHomeRouter);
-app.use('/administratorHome', administratorHomeRouter);
+app.use('/managerHome', managerHomeRouter);
 
-// catch 404 and forward to error handler
+// 捕获404并转发到错误处理程序
 app.use(function (req, res, next) {
     next(createError(404));
 });
 
-// error handler
+// 错误处理
 app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;

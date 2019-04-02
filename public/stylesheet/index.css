@@ -1,6 +1,10 @@
 * {
     margin: 0;
     padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .dropdown {
@@ -40,10 +44,6 @@ h1.log-title {
 #forget-password {
     font-size: 14px;
     color: #09d;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     cursor: pointer;
     margin: 7px;   
 }
