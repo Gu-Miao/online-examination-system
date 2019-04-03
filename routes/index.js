@@ -23,14 +23,14 @@ router.post('/', function (req, res) {
     // 0 登录成功，1 用户名不存在，2 密码错误，3 登录请求失败
     switch (Number(req.body.userType)) {
         case 0:
-            logInfo = studentLogin(req.body, res);
-            return;;
+            studentLogin(req.body, res);
+            return;
         case 1:
-            logInfo = teacherLogin(req.body, res);
-            return;;
+            teacherLogin(req.body, res);
+            return;
         case 2:
-            logInfo = managerLogin(req.body, res);
-            return;;
+            managerLogin(req.body, res);
+            return;
         default:
             res.send('3');
             return;
@@ -48,11 +48,11 @@ let studentLogin = (data, res) => {
                 res.send('1')
                 return;
             } else if (doc[0].password === data.password) {
-                res.send('0');
-                return '0';
+                res.json(doc[0].name);
+                return;
             } else {
                 res.send('2');
-                return '2';
+                return;
             }
         }
     });
@@ -69,11 +69,11 @@ let teacherLogin = (data, res) => {
                 res.send('1')
                 return;
             } else if (doc[0].password === data.password) {
-                res.send('0');
-                return '0';
+                res.json(doc[0].name);
+                return;
             } else {
                 res.send('2');
-                return '2';
+                return;
             }
         }
     });
@@ -90,11 +90,11 @@ let managerLogin = (data, res) => {
                 res.send('1')
                 return;
             } else if (doc[0].password === data.password) {
-                res.send('0');
-                return '0';
+                res.json(doc[0].name);
+                return;
             } else {
                 res.send('2');
-                return '2';
+                return;
             }
         }
     });

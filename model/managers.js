@@ -3,6 +3,12 @@ let mongoose = require('./connect');
 
 // 定义学生集合数据结构
 let managerSchema = mongoose.Schema({
+    name: { // 管理员姓名
+        type: String,
+        trim: true,
+        minlength: 2,
+        maxlength: 20
+    },
     mid: { // 管理员ID
         type: String,
         trim: true,

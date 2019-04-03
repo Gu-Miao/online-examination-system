@@ -1,9 +1,7 @@
 $(function () {
 
     // 下拉框
-    $('.dropdown-item').click(function () {
-        $(this).parent().prev().find('span').html($(this).html());
-    });
+    $('.dropdown-item').click(dropdownSelect);
 
     // 验证码
     var $verifyCode = new GVerify({
@@ -41,9 +39,9 @@ function login() {
     if (validate()) {
 
         var userType = getUserType($('.dropdown button span').html());
+        var username = $('#username').val();
         var data = {
-            id: 'login',
-            username: $('#username').val(),
+            username: username,
             password: $('#password').val(),
             userType: userType
         }
@@ -62,9 +60,11 @@ function login() {
             success: function (data) {
                 setTimeout(function () {
                     layer.closeAll();
-                    console.log('data', data);
-                    console.log(!Number(data));
-                    if (data == 0) {
+                    if (!isNumber(data)) {
+                        console.log('hello')
+                        window.sessionStorage.setItem('eaxm_username', username);
+                        window.sessionStorage.setItem('eaxm_user_type', userType);
+                        window.sessionStorage.setItem('eaxm_name', data);
                         if (userType == 0) {
                             window.location.pathname = '/studentHome';
                         } else if (userType == 1) {

@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var teacherHomeRouter = require('./routes/teacherHome');
 var studentHomeRouter = require('./routes/studentHome');
 var managerHomeRouter = require('./routes/managerHome');
+var userManagerRouter = require('./routes/userManager');
 
 var app = express();
 
@@ -25,11 +26,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
+
 // 注册路由
 app.use('/', indexRouter);
 app.use('/teacherHome', teacherHomeRouter);
 app.use('/studentHome', studentHomeRouter);
 app.use('/managerHome', managerHomeRouter);
+app.use('/userManager', userManagerRouter);
 
 // 捕获404并转发到错误处理程序
 app.use(function (req, res, next) {

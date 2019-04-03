@@ -45,12 +45,10 @@ function login() {
             userType: getUserType($('.dropdown button span').html())
         }
 
-        layui.use('layer', function () {
-            layui.layer.msg('正在登录...', {
-                icon: 16,
-                shade: 0.01,
-                time: 0
-            });
+        layer.msg('正在登录...', {
+            icon: 16,
+            shade: 0.01,
+            time: 0
         });
 
         console.log('登录成功');
