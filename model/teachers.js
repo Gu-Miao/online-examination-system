@@ -9,7 +9,7 @@ let teacherSchema = mongoose.Schema({
         minlength: 2,
         maxlength: 20
     },
-    tid: { // 教工号
+    id: { // 教工号
         type: String,
         trim: true,
         minlength: 1

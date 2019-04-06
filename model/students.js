@@ -9,7 +9,7 @@ let studentSchema = mongoose.Schema({
         minlength: 2,
         maxlength: 20
     },
-    sid: { // 学号
+    id: { // 学号
         type: String,
         trim: true,
         minlength: 1
