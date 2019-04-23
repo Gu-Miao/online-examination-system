@@ -1,9 +1,9 @@
 /*
   * b4-table - An extended Bootstrap table based on boostrap4.
   *
-  * @version v0.0.1
+  * @version v0.0.2
   * @author Hikamai <1450206741@qq.com> (https://github.com/Gu-Miao)
   * @github (https://github.com/Gu-Miao/b4-table)
   * @license MIT
   */
-.b4-table *{text-align:center;border-color:#ccc!important}.b4-table table{border-spacing:0;border-width:1px;border-top-width:0;margin-bottom:0}.b4-table caption{border:1px solid #ccc;border-bottom-width:0;caption-side:top}.b4-table thead th{border-bottom-width:1px}.b4-table .b4-page{padding:.25rem;padding-right:0;width:100%}.b4-table .b4-page .b4-pager{margin:.25rem;margin-right:0}.b4-table .b4-page .b4-pager .btn-toolbar{float:right!important;margin:.25rem;margin-right:0}.b4-table .b4-page .b4-pager .input-group{line-height:38px;border-top:1px solid #007bff;border-bottom:1px solid #007bff}.b4-table .b4-page .b4-pager .input-group input{width:50px;border:none;margin:0}.b4-table .b4-page .b4-pager .input-group span{margin:0 1rem}.b4-table .b4-page .b4-pager .input-group span:first-child{margin-right:.25rem}.b4-table .b4-page .b4-pager .input-group span:last-child{margin-left:.25rem}
+.b4-table{background-color:#fff}.b4-table *{text-align:center}.b4-table .opreator{border:1px solid #ccc;border-bottom:none;height:60px}.b4-table table{border-spacing:0;border-width:1px;border-top-width:0;margin-bottom:0;border-color:#ccc!important}.b4-table caption{border:1px solid #ccc;border-bottom-width:0;caption-side:top;border-color:#ccc!important}.b4-table thead th{border-bottom-width:1px;border-color:#ccc!important}.b4-table td,.b4-table tr{border-color:#ccc!important}.b4-table .b4-page{padding:.25rem;padding-right:0;width:100%}.b4-table .b4-page .b4-pager{margin:.25rem;margin-right:0}.b4-table .b4-page .b4-pager .btn-toolbar{float:right!important;margin:.25rem;margin-right:0}.b4-table .b4-page .b4-pager .input-group{line-height:38px;border-top:1px solid #007bff;border-bottom:1px solid #007bff}.b4-table .b4-page .b4-pager .input-group input{width:50px;border:none;margin:0}.b4-table .b4-page .b4-pager .input-group span{margin:0 1rem}.b4-table .b4-page .b4-pager .input-group span:first-child{margin-right:.25rem}.b4-table .b4-page .b4-pager .input-group span:last-child{margin-left:.25rem}
