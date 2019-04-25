@@ -8,8 +8,7 @@ let app = express();
 app.use(jsonParser);
 
 // 引入数据库集合模型
-let studentsModel = require('../model/students');
-let teachersModel = require('../model/teachers');
+let usersModel = require('../model/users');
 let managersModel = require('../model/managers');
 
 // 获取主页
@@ -39,7 +38,7 @@ router.post('/', function (req, res) {
 
 // 学生登录
 let studentLogin = (data, res) => {
-    studentsModel.find({ username: data.username }, (err, doc) => {
+    usersModel.find({ username: data.username }, (err, doc) => {
         if (err) {
             console.log(err);
             return '3';
@@ -60,7 +59,7 @@ let studentLogin = (data, res) => {
 
 // 教师登录
 let teacherLogin = (data, res) => {
-    teachersModel.find({ username: data.username }, (err, doc) => {
+    usersModel.find({ username: data.username }, (err, doc) => {
         if (err) {
             console.log(err);
             return '3';
