@@ -13,6 +13,9 @@ var studentHomeRouter = require('./routes/studentHome');
 var managerHomeRouter = require('./routes/managerHome');
 var userManagerRouter = require('./routes/userManager');
 
+// layer路由
+var userManagerNewRouter = require('./routes/layer/userManagerNew');
+
 var app = express();
 
 // 注册模板引擎
@@ -33,6 +36,7 @@ app.use('/teacherHome', teacherHomeRouter);
 app.use('/studentHome', studentHomeRouter);
 app.use('/managerHome', managerHomeRouter);
 app.use('/userManager', userManagerRouter);
+app.use('/userManagerNew', userManagerNewRouter);
 
 // 捕获404并转发到错误处理程序
 app.use(function (req, res, next) {

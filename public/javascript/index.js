@@ -46,11 +46,7 @@ function login() {
             userType: userType
         }
 
-        layer.msg('正在登录...', {
-            icon: 16,
-            shade: 0.01,
-            time: 0
-        });
+        loadingy();
 
         $.ajax({
             type: "post",
@@ -73,11 +69,11 @@ function login() {
                             window.location.pathname = '/managerHome';
                         }
                     } else if (data == 1) {
-                        layer.msg('用户名不存在', { icon: 5, time: 2000 });
+                        erry('用户名不存在', 2000);
                     } else if (data == 2) {
-                        layer.msg('密码错误', { icon: 5, time: 2000 });
+                        erry('密码错误', 2000);
                     } else {
-                        layer.msg('登录失败，请重新登录', { icon: 5, time: 2000 });
+                        erry('登录失败，请重新登录', 2000);
                     }
                 }, 1000);
             },

@@ -3,38 +3,43 @@ let express = require('express');
 let router = express.Router();
 
 // 引入第三方库
-let extend = require('extend');
 let jsonParser = require('body-parser').json();
 let app = express();
 app.use(jsonParser);
 
 // 引入数据库集合模型
-let studentsModel = require('../model/students');
-let teachersModel = require('../model/teachers');
+let usersModel = require('../model/users');
 
-/* GET users listing. */
 router.get('/', function (req, res, next) {
     res.render('userManager');
 });
 
-/* GET users listing. */
 router.post('/', function (req, res, next) {
-    let data = [];
-    studentsModel.find({}, (err, docs) => {
+    var reqData = JSON.parse(JSON.stringify(req.body));
+    if (reqData.search) {
+        reqData = JSON.parse(reqData.search);
+        console.log(reqData)
+    }
+
+    usersModel.find(reqData, (err, docs) => {
+        if (err) {
+            console.log('err: ', err);
+        } else {
+            // console.log(docs);
+            res.json(docs);
+        }
+    });
+});
+
+router.delete('/', function (req, res, next) {
+    // console.log(req.body, typeof req.body);
+    usersModel.deleteOne({ uid: req.body.uid }, (err, docs) => {
         if (err) {
             throw err;
         } else {
-            return docs;
+            console.log(docs);
+            res.json(docs);
         }
-    }).then((re) => {
-        teachersModel.find({}, (err, docs) => {
-            if (err) {
-                throw err;
-            } else {
-                data = data.concat(re).concat(docs);
-                res.json(data);
-            }
-        });
     });
 });
 

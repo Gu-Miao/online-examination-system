@@ -38,7 +38,7 @@ router.post('/', function (req, res) {
 
 // 学生登录
 let studentLogin = (data, res) => {
-    usersModel.find({ username: data.username }, (err, doc) => {
+    usersModel.find({ username: data.username, type: 0 }, (err, doc) => {
         if (err) {
             console.log(err);
             return '3';
@@ -59,7 +59,7 @@ let studentLogin = (data, res) => {
 
 // 教师登录
 let teacherLogin = (data, res) => {
-    usersModel.find({ username: data.username }, (err, doc) => {
+    usersModel.find({ username: data.username, type: 1 }, (err, doc) => {
         if (err) {
             console.log(err);
             return '3';

@@ -40,7 +40,13 @@ let usersSchema = mongoose.Schema({
         minlength: 6,
         maxlength: 16,
         match: /^[\w_.]{6,16}$/
+    },
+    type: { // 用户类型
+        type: Number,
+        trim: true,
+        minlength: 1,
+        maxlength: 2,
     }
-});
+}, { versionKey: false });
 
 module.exports = mongoose.model('Users', usersSchema, 'users');

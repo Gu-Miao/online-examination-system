@@ -20,3 +20,66 @@ function isNumber(str) {
 function dropdownSelect() {
     $(this).parent().prev().find('span').html($(this).html());
 }
+
+/**
+ * 加载框
+ */
+function loadingy() {
+    layer.msg('正在加载...', {
+        icon: 16,
+        shade: 0.01,
+        time: 0
+    });
+}
+
+/**
+ * 信息框
+ */
+function infoy(info, time) {
+    layer.msg(info, { time: time });
+}
+
+/**
+ * ok信息框
+ */
+function oky(ok, time) {
+    layer.msg(ok, { icon: 6, time: time });
+}
+
+/**
+ * 错误信息框
+ */
+function erry(err, time) {
+    layer.msg(err, { icon: 5, time: time });
+}
+
+/**
+ * 确认框
+ */
+function cony(text, ycb, arg) {
+    layer.open({
+        type: 0,
+        title: false,
+        content: text,
+        btnAlign: 'c',
+        btn: ["确定", "取消"],
+        closeBtn: 0,
+        yes: function (index) {
+            layer.close(index);
+            ycb(arg);
+        },
+        no: function (index) {
+            layer.close(index);
+        }
+    });
+}
+
+// 表单框
+function fromy(title, src, area) {
+    layer.open({
+        type: 2,
+        title: [title, "font-size: 16px;"],
+        content: src,
+        area: area,
+    });
+}

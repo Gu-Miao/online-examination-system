@@ -2,7 +2,7 @@
 let mongoose = require('./connect');
 
 // 定义学生集合数据结构
-let managerSchema = mongoose.Schema({
+let managerSchema = new mongoose.Schema({
     name: { // 管理员姓名
         type: String,
         trim: true,
@@ -26,6 +26,6 @@ let managerSchema = mongoose.Schema({
         maxlength: 16,
         match: /^[\w_.]{6,16}$/
     }
-});
+}, { versionKey: false });
 
 module.exports = mongoose.model('Managers', managerSchema, 'managers');

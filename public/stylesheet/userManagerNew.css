@@ -1,0 +1,8 @@
+.dropdown button::after {
+    float: right;
+    margin-top: 10px;
+}
+
+.dropdown .dropdown-menu {
+    left: -5px !important;
+}
