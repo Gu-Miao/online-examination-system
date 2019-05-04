@@ -11,10 +11,13 @@ var indexRouter = require('./routes/index');
 var teacherHomeRouter = require('./routes/teacherHome');
 var studentHomeRouter = require('./routes/studentHome');
 var managerHomeRouter = require('./routes/managerHome');
-var userManagerRouter = require('./routes/userManager');
+var userManagementRouter = require('./routes/userManagement');
+var questionManagementRouter = require('./routes/questionManagement');
 
 // layer路由
-var userManagerNewRouter = require('./routes/layer/userManagerNew');
+var userManagementNewRouter = require('./routes/userManagementLayer/new');
+var userManagementPreviewRouter = require('./routes/userManagementLayer/preview');
+var userManagementChangeRouter = require('./routes/userManagementLayer/change');
 
 var app = express();
 
@@ -35,8 +38,13 @@ app.use('/', indexRouter);
 app.use('/teacherHome', teacherHomeRouter);
 app.use('/studentHome', studentHomeRouter);
 app.use('/managerHome', managerHomeRouter);
-app.use('/userManager', userManagerRouter);
-app.use('/userManagerNew', userManagerNewRouter);
+app.use('/userManagement', userManagementRouter);
+app.use('/questionManagement', questionManagementRouter);
+
+// layer 路由
+app.use('/userManagementNew', userManagementNewRouter);
+app.use('/userManagementPreview', userManagementPreviewRouter);
+app.use('/userManagementChange', userManagementChangeRouter);
 
 // 捕获404并转发到错误处理程序
 app.use(function (req, res, next) {

@@ -75,11 +75,24 @@ function cony(text, ycb, arg) {
 }
 
 // 表单框
-function fromy(title, src, area) {
+function formy(title, src, area) {
     layer.open({
         type: 2,
         title: [title, "font-size: 16px;"],
         content: src,
         area: area,
     });
+}
+
+// 获取 url 上的参数，只用于获取 ID
+function getRequest(search) {
+    search = search.substr(1);
+    search = search.split('&');
+    let data = {};
+    for (let i = 0; i < search.length; ++i) {
+        search[i] = search[i].split('=');
+        data[search[i][0]] = search[i][1];
+    }
+
+    return data;
 }

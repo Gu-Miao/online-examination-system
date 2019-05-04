@@ -65,6 +65,8 @@ function initTable() {
                         }
                     ],
                     "body": data,
+                    newClick: openNewLayer,
+                    previewClick: openPreviewLayer,
                     changeClick: openChangeLayer,
                     deleteClick: openDeleteLayer
                 });
@@ -130,15 +132,22 @@ function search() {
     });
 }
 
+
+// 打开新增用户信息确认对话框
+function openNewLayer() {
+    formy('新增', '/userManagementNew', ['700px', '510px']);
+}
+
+// 打开预览对话框
+function openPreviewLayer() {
+    formy('预览', `/userManagementPreview?uid=${$(this).parent().parent().children().eq(1).html()}`, ['700px', '420px']);
+}
+
 // 打开修改用户信息确认对话框
 function openChangeLayer() {
-    fromy('新增', '/userManagerNew', ['700px', '510px']);
+    formy('修改', `/userManagementChange?uid=${$(this).parent().parent().children().eq(1).html()}`, ['700px', '510px']);
 }
 
-// 修改用户信息
-function changeUserInfo() {
-
-}
 
 // 打开删除用户确认对话框
 function openDeleteLayer() {

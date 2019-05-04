@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>试题管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/libraries/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/libraries/b4-table/b4-table.min.css">
+    <link rel="stylesheet" href="/stylesheet/home.css">
+    <link rel="stylesheet" href="/stylesheet/questionManagement.css">
+</head>
+
+<body>
+
+    <!-- 顶部 -->
+    <div class="navbar">
+
+        <!-- logo -->
+        <span class="navbar-brand logo" href="#">
+            <img src="/images/favicon.ico" width="30" height="30" class="d-inline-block align-top">
+            在线考试信息系统
+        </span>
+
+        <!-- 用户 -->
+        <span class="float-right user">
+            <a class="dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown"></a>
+            <div class="dropdown-menu float-right">
+                <a class="dropdown-item" href="#">修改密码</a>
+                <a class="dropdown-item" href="/">注销用户</a>
+            </div>
+        </span>
+    </div>
+
+    <!-- 主容器 -->
+    <div id="main">
+
+        <!-- 查询项 -->
+        <div id="search-item" class="m-3 rounded">
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">
+                        查询项
+                    </button>
+
+                </div>
+
+                <div id="collapseOne" class="collapse show" data-parent="#search-item">
+                    <div class="card-body">
+
+                        <!-- 搜索框 -->
+                        <div class="form-group w-50 mx-auto">
+                            <input type="text" class="form-control" id="search-input" placeholder="搜索">
+                        </div>
+
+                        <!-- 查询选项 -->
+                        <div class="form-group w-50 mx-auto clearfix">
+
+                            <!-- 用户类型 -->
+                            <div class="dropdown float-left" id="question-type">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                                    <span>题目类型</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item">单选题</li>
+                                    <li class="dropdown-item">多选题</li>
+                                    <li class="dropdown-item">判断题</li>
+                                    <li class="dropdown-item">填空题</li>
+                                    <li class="dropdown-item">简答题</li>
+                                    <li class="dropdown-item">综合题</li>
+                                </ul>
+                            </div>
+
+                            <!-- 查询内容 -->
+                            <div class="dropdown float-left ml-3" id="search-content">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                                    <span>查询内容</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item">题干</li>
+                                    <li class="dropdown-item">题目ID</li>
+                                </ul>
+                            </div>
+
+                            <!-- 按钮组 -->
+                            <div class="btn-group float-right">
+                                <button class="btn btn-primary" id="search">查询</button>
+                                <button class="btn btn-danger" id="reset">重置</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主题内容 -->
+        <div id="body"></div>
+
+    </div>
+
+    <div id="footer">
+        Copyright (c) 2019 <a href="https://github.com/Gu-Miao" target="_blank">Hikamai</a>
+    </div>
+
+</body>
+
+<script src="/libraries/jquery/jquery.min.js"></script>
+<script src="/libraries/layer/layer.js"></script>
+<script src="/libraries/popper.js/popper.min.js"></script>
+<script src="/libraries/bootstrap/bootstrap.min.js"></script>
+<script src="/libraries/b4-table/b4-table.min.js"></script>
+<script src="/javascript/main.js"></script>
+<script src="/javascript/home.js"></script>
+<script src="/javascript/questionManagement.js"></script>
+
+</html>

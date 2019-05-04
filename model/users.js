@@ -2,7 +2,7 @@
 let mongoose = require('./connect');
 
 // 定义学生集合数据结构
-let usersSchema = mongoose.Schema({
+let UsersSchema = mongoose.Schema({
     name: { // 中文姓名
         type: String,
         trim: true,
@@ -49,4 +49,4 @@ let usersSchema = mongoose.Schema({
     }
 }, { versionKey: false });
 
-module.exports = mongoose.model('Users', usersSchema, 'users');
+module.exports = mongoose.model('Users', UsersSchema, 'users');

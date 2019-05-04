@@ -2,7 +2,7 @@
 let mongoose = require('./connect');
 
 // 定义学生集合数据结构
-let managerSchema = new mongoose.Schema({
+let ManagerSchema = new mongoose.Schema({
     name: { // 管理员姓名
         type: String,
         trim: true,
@@ -28,4 +28,4 @@ let managerSchema = new mongoose.Schema({
     }
 }, { versionKey: false });
 
-module.exports = mongoose.model('Managers', managerSchema, 'managers');
+module.exports = mongoose.model('Managers', ManagerSchema, 'managers');

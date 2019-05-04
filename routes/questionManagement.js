@@ -8,32 +8,32 @@ let app = express();
 app.use(jsonParser);
 
 // 引入数据库集合模型
-let usersModel = require('../model/users');
+let questionsModel = require('../model/questions');
 
 router.get('/', function (req, res, next) {
-    res.render('userManager');
+    res.render('questionManagement');
 });
 
 router.post('/', function (req, res, next) {
     var reqData = JSON.parse(JSON.stringify(req.body));
+    console.log(reqData)
     if (reqData.search) {
         reqData = JSON.parse(reqData.search);
         console.log(reqData)
     }
 
-    usersModel.find(reqData, (err, docs) => {
+    questionsModel.find(reqData, (err, docs) => {
         if (err) {
             console.log('err: ', err);
         } else {
-            // console.log(docs);
+            console.log(docs);
             res.json(docs);
         }
     });
 });
 
 router.delete('/', function (req, res, next) {
-    // console.log(req.body, typeof req.body);
-    usersModel.deleteOne({ uid: req.body.uid }, (err, docs) => {
+    questionsModel.deleteOne({ qid: req.body.qid }, (err, docs) => {
         if (err) {
             throw err;
         } else {
