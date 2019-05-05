@@ -39,7 +39,7 @@ function inputDOM(field, data, isPreview) {
     } else if (data.area) {
         $DOM.append($(`
             <label>${data.title}</label>
-            <textarea id="${field}"}></textarea>
+            <textarea id="${field}" class="form-control"></textarea>
         `));
         if (isPreview) $DOM.find('textarea').prop('readonly', true);
     } else {

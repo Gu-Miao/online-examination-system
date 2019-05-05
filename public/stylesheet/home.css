@@ -13,6 +13,10 @@ body {
     -webkit-user-select: none;
 }
 
+body table {
+    user-select: text;
+}
+
 .navbar {
     background-color: #f8f9fa;
 }

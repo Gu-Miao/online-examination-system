@@ -9,7 +9,7 @@ $(function () {
     // 重置
     $('#reset').click(function () {
         $('#search-input').val('');
-        $('#question-type button span').html('用户类型');
+        $('#question-type button span').html('题目类型');
         $('#search-content button span').html('查询内容');
     });
 
@@ -49,6 +49,7 @@ function initTable() {
                     ],
                     "body": data,
                     newClick: openNewLayer,
+                    previewClick: openPreviewLayer,
                     changeClick: openChangeLayer,
                     deleteClick: openDeleteLayer
                 });
@@ -73,7 +74,7 @@ function search() {
     var data = {};
     if (input != '') {
         if (content == "查询内容") {
-            data.$or = [{ name: input }, { uid: input }];
+            data.$or = [{ content: input }, { qid: input }];
         } else if (content == "题干") {
             data.content = input;
         } else {
@@ -118,15 +119,47 @@ function search() {
     });
 }
 
-// 打开修改用户信息确认对话框
+// 打开新增用户信息确认对话框
 function openNewLayer() {
-    formy('新增', '/new', ['700px', '510px']);
+    layer.open({
+        type: 1,
+        title: '请选择题目类型',
+        content: `
+            <select class="form-control" id="qtype">
+                <option value="0">单选题</option>
+                <option value="1">多选题</option>
+                <option value="2">判断题</option>
+                <option value="3">填空题</option>
+                <option value="4">简答题</option>
+                <option value="5">综合题</option>
+            </select>
+        `,
+        btnAlign: 'c',
+        area: ['200px', '160px'],
+        btn: ["确定", "取消"],
+        success: function ($layer, index) {
+            $layer.find('.layui-layer-content').css('padding', '.75rem');
+        },
+        yes: function (index) {
+            layer.close(index);
+            formy('新增', `/questionManagementNew?type=${$('#qtype').val()}`, ['700px', '510px']);
+        },
+        no: function (index) {
+            layer.close(index);
+        }
+    });
+}
+
+// 打开预览对话框
+function openPreviewLayer() {
+    formy('预览', `/questionManagementPreview?qid=${$(this).parent().parent().children().eq(1).html()}`, ['700px', '420px']);
 }
 
 // 打开修改用户信息确认对话框
 function openChangeLayer() {
-    formy('修改', '/change', ['700px', '510px']);
+    formy('修改', `/questionManagementChange?qid=${$(this).parent().parent().children().eq(1).html()}`, ['700px', '510px']);
 }
+
 
 // 打开删除用户确认对话框
 function openDeleteLayer() {

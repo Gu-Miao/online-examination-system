@@ -18,6 +18,9 @@ var questionManagementRouter = require('./routes/questionManagement');
 var userManagementNewRouter = require('./routes/userManagementLayer/new');
 var userManagementPreviewRouter = require('./routes/userManagementLayer/preview');
 var userManagementChangeRouter = require('./routes/userManagementLayer/change');
+var questionManagementNewRouter = require('./routes/questionManagementLayer/new');
+var questionManagementPreviewRouter = require('./routes/questionManagementLayer/preview');
+var questionManagementChangeRouter = require('./routes/questionManagementLayer/change');
 
 var app = express();
 
@@ -45,6 +48,9 @@ app.use('/questionManagement', questionManagementRouter);
 app.use('/userManagementNew', userManagementNewRouter);
 app.use('/userManagementPreview', userManagementPreviewRouter);
 app.use('/userManagementChange', userManagementChangeRouter);
+app.use('/questionManagementNew', questionManagementNewRouter);
+app.use('/questionManagementPreview', questionManagementPreviewRouter);
+app.use('/questionManagementChange', questionManagementChangeRouter);
 
 // 捕获404并转发到错误处理程序
 app.use(function (req, res, next) {

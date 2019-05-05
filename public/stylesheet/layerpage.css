@@ -6,3 +6,11 @@
 .dropdown .dropdown-menu {
     left: -5px !important;
 }
+
+textarea {
+    max-height: 150px;
+}
+
+.badge {
+    cursor: pointer;
+}
