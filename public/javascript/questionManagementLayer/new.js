@@ -11,27 +11,20 @@ $(function () {
 
 // 渲染页面
 function render(type, $dom) {
-    switch (type) {
-        case '0':
-            newSin($dom);
-            break;
-        case '1':
-            newMult($dom);
-            break;
-        case '2':
-            newJug($dom);
-            break;
-        case '3':
-            newBlank($dom);
-            break;
-        case '4':
-            newShort($dom);
-            break;
-        case '5':
-            newCom($dom);
-            break;
-        default:
-            break;
+    if (type == 0) {
+        newSin($dom);
+    } else if (type == 1) {
+        newMult($dom);
+    } else if (type == 2) {
+        newJug($dom);
+    } else if (type == 3) {
+        newBlank($dom);
+    } else if (type == 4) {
+        newShort($dom);
+    } else if (type == 5) {
+        newCom($dom);
+    } else {
+        erry('题目类型错误', 2000);
     }
 }
 

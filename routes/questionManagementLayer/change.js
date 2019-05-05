@@ -7,7 +7,7 @@ let app = express();
 app.use(jsonParser);
 
 // 引入数据库集合模型
-let usersModel = require('../../model/users');
+let questionsModel = require('../../model/questions');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    usersModel.find(req.body, (err, docs) => {
+    questionsModel.find(req.body, (err, docs) => {
         if (err) {
             console.log(err);
         } else {
@@ -25,13 +25,14 @@ router.post('/', function (req, res, next) {
 });
 
 router.put('/', function (req, res, next) {
-    console.log(1);
-    console.log(req.body);
-    usersModel.updateOne({ uid: req.body.preid }, req.body, (err, docs) => {
+    let data = req.body;
+    data.options = JSON.parse(data.options);
+    data.smallQuestions = JSON.parse(data.smallQuestions);
+    questionsModel.updateOne({ qid: data.qid }, req.body, (err, docs) => {
         if (err) {
             console.log(err);
         } else {
-            usersModel.find({}, (err, docs) => {
+            questionsModel.find({}, (err, docs) => {
                 if (err) {
                     console.log(err);
                 } else {
