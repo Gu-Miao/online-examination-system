@@ -1,3 +1,4 @@
+// 引入 express
 let express = require('express');
 let router = express.Router();
 
@@ -7,17 +8,17 @@ let app = express();
 app.use(jsonParser);
 
 // 引入数据库集合模型
-let examModel = require('../../model/exams');
+let examModel = require('../model/exams');
 
-/* GET exam listing. */
-router.get('/', function (req, res, next) {
-    res.render('examManagementLayer/preview');
+// 获取主页
+router.get('/', function (req, res) {
+    res.render('examList');
 });
 
-router.post('/', function (req, res, next) {
-    examModel.find({ eid: req.body.eid }, (err, docs) => {
+router.post('/', function (req, res) {
+    examModel.find({}, (err, docs) => {
         if (err) {
-            console.log(err)
+            console.log(err);
         } else {
             res.json(docs);
         }

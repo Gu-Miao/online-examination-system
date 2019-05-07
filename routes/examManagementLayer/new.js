@@ -8,6 +8,7 @@ app.use(jsonParser);
 
 // 引入数据库集合模型
 let examModel = require('../../model/exams');
+let courseModel = require('../../model/courses');
 
 /* GET exam listing. */
 router.get('/', function (req, res, next) {
@@ -15,15 +16,23 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', (req, res, next) => {
-    examModel.insertMany(req.body, (err) => {
-        if(err) {
+    let data = req.body;
+    courseModel.findOne({ cid: req.body.cid }, (err, docs) => {
+        if (err) {
             console.log(err);
         } else {
-            examModel.find({}, (err, docs) => {
-                if(err) {
+            data.students = docs.students;
+            examModel.insertMany(data, (err) => {
+                if (err) {
                     console.log(err);
                 } else {
-                    res.json(docs);
+                    examModel.find({}, (err, docs) => {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            res.json(docs);
+                        }
+                    });
                 }
             });
         }

@@ -24,7 +24,7 @@ function inputDOM(field, data, isPreview) {
                 <div class="dropdown-menu w-100"></div>
             </div>
         `));
-        if(isPreview) $DOM.find('button.dropdown-toggle').removeAttr('data-toggle');
+        if (isPreview) $DOM.find('button.dropdown-toggle').removeAttr('data-toggle');
         for (let i = 0; i < data.menu.length; ++i) {
             $DOM.find('.dropdown-menu').append($(`
                     <a class="dropdown-item" href="#">${data.menu[i]}</a>

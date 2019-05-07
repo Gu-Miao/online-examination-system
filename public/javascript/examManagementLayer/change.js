@@ -1,28 +1,36 @@
-let uid = '';
+const eid = getRequest(window.location.search).eid;
 
 $(function () {
 
     loadingy();
-
     // 初始化页面
-    getformDOM(layerData.userManagement);
+    getformDOM(layerData.examManagement);
+    laydate.render({
+        elem: '#date',
+        trigger: 'click'
+    });
+    laydate.render({
+        elem: '#time',
+        type: 'time',
+        range: true,
+        format: 'HH:MM',
+        trigger: 'click'
+    });
 
     $.ajax({
         type: "post",
         url: window.location.pathname,
-        data: getRequest(window.location.search),
+        data: { eid: eid },
         dataType: "json",
         timeout: 10 * 1000,
         success: function (data) {
             setTimeout(function () {
                 layer.closeAll();
-                console.log(data);
                 data = data[0];
-                data.type ? data.type = "教师" : data.type = "考生";
-                uid = data.uid;
+                console.log(data);
                 for (let i in data) {
-                    if (!layerData.userManagement[i]) continue;
-                    (layerData.userManagement[i].menu) ? $(`#${i}`).html(data[i]) : $(`#${i}`).val(data[i]);
+                    if (!layerData.examManagement[i]) continue;
+                    $(`#${i}`).val(data[i]);
                 }
             }, 1000);
         },
@@ -41,9 +49,7 @@ $(function () {
 function submit(event) {
 
     let data = getInputData(event.data);
-    data.type === '考生' ? data.type = 0 : data.type = 1;
-    data.preid = uid;
-
+    data.preid = eid;
     loadingy();
 
     $.ajax({

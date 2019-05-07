@@ -38,9 +38,18 @@
     cursor: pointer;
 }
 
-.aa{
-    display: inline-block;
-    font-size: 1.1rem;
+.exam_page_h2 span {
+    font-size: .8rem;
+}
+
+.exam_one_question {
+    color: #212529;
+    font-weight: 500;
+}
+
+.aa {
+    display    : inline-block;
+    font-size  : 1.1rem;
     margin-left: .3rem;
     font-weight: 600;
 }
@@ -57,7 +66,6 @@ a:hover {
 
 img {
     border        : 0px;
-    vertical-align: middle;
 }
 
 li {
@@ -90,16 +98,18 @@ li {
 .exam_top .time {
     font-size     : 20px;
     color         : #ff0000;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
+
+.it {
+    margin-bottom: 5px;
+}
+
+
 
 .exam_top .green {
     font-size     : 20px;
     color         : #009944;
-    vertical-align: middle;
-}
-
-.exam_top img {
     vertical-align: middle;
 }
 
@@ -139,7 +149,7 @@ li {
     color           : #aaa;
     font-weight     : 600;
     font-size       : .9rem;
-    padding         : .5rem;
+    padding         : .7rem;
 }
 
 .exam_page_h2 {
@@ -150,17 +160,17 @@ li {
 }
 
 .exam_page_h2 .glyphicon {
-    font-size     : 1.2rem;
+    font-size: 1.2rem;
 }
 
 .exam_page_h2 .red {
     display  : inline;
     font-size: 18px;
-    color: red;
+    color    : red;
 }
 
 .exam_one_question {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .exam_one_question .exam_answer {
@@ -197,6 +207,7 @@ li {
 .exam_one_question .exam_answer textarea {
     resize    : vertical;
     min-height: 80px;
+    max-height: 200px;
 }
 
 .exam_map {

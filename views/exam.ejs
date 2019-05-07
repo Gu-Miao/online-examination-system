@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>考试</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/libraries/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/libraries/b4-table/b4-table.min.css">
+    <link rel="stylesheet" href="/stylesheet/home.css">
+    <link rel="stylesheet" href="/stylesheet/paper.css">
+</head>
+
+<body class="exam_bj">
+
+    <!-- 固定顶端 倒计时和按钮-->
+    <div class="exam_top">
+        <div class="container">
+            <div class="float-right">
+                <button id="submit" type="button" class="btn btn-success btn-lg">交卷</button>
+            </div>
+            <span class="aa">剩余作答时间：</span>
+            <img class="it" src="images/ico_time.png" />
+            <span class="time">01:00:23</span>
+        </div>
+    </div>
+    <div class="container exam_main">
+        <div class="row">
+            <div class="col-10">
+
+                <!--试卷内容-->
+                <div class="exam_page"></div>
+            </div>
+
+            <!--快速定位-->
+            <div class="col-2" style="position: relative;">
+
+                <div class="exam_map">
+                    <div class="tit">题目列表</div>
+                    <div class="main">
+                        <ul>
+                            <li><a href="#sin">单选题</a></li>
+                            <li><a href="#mut">多选题</a></li>
+                            <li><a href="#jug">判断题</a></li>
+                            <li><a href="#bnk">填空题</a></li>
+                            <li><a href="#sht">简答题</a></li>
+                            <li><a href="#cmp">综合题</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script src="/libraries/jquery/jquery.min.js"></script>
+<script src="/libraries/layer/layer.js"></script>
+<script src="/libraries/popper.js/popper.min.js"></script>
+<script src="/libraries/bootstrap/bootstrap.min.js"></script>
+<script src="/libraries/b4-table/b4-table.min.js"></script>
+<script src="/javascript/main.js"></script>
+<script src="/javascript/home.js"></script>
+<script src="/javascript/exam.js"></script>
+
+</html>

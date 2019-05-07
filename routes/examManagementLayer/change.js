@@ -7,39 +7,40 @@ let app = express();
 app.use(jsonParser);
 
 // 引入数据库集合模型
-let usersModel = require('../../model/users');
+let examModel = require('../../model/exams');
+let courseModel = require('../../model/courses');
 
-/* GET users listing. */
+/* GET exam listing. */
 router.get('/', function (req, res, next) {
-    res.render('userManagementLayer/change');
+    res.render('examManagementLayer/change');
 });
 
-router.post('/', function (req, res, next) {
-    usersModel.find(req.body, (err, docs) => {
+router.post('/', (req, res, next) => {
+    examModel.find({ eid: req.body.eid }, (err, docs) => {
         if (err) {
             console.log(err);
         } else {
+            console.log(docs)
             res.json(docs);
         }
-    })
+    });
 });
 
-router.put('/', function (req, res, next) {
-    console.log(1);
-    console.log(req.body);
-    usersModel.updateOne({ uid: req.body.preid }, req.body, (err, docs) => {
+router.put('/', (req, res, next) => {
+    examModel.updateOne({ eid: req.body.preid }, req.body, (err, docs) => {
         if (err) {
             console.log(err);
         } else {
-            usersModel.find({}, (err, docs) => {
+            examModel.find({}, (err, docs) => {
                 if (err) {
                     console.log(err);
                 } else {
+                    console.log(docs)
                     res.json(docs);
                 }
             });
         }
-    });
+    })
 });
 
 module.exports = router;

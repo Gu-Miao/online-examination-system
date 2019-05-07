@@ -20,11 +20,11 @@ let ExamSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    data: { // 试卷ID
+    date: { // 考试日期
         type: String,
         trim: true
     },
-    time: { // 试卷ID
+    time: { // 考试时间
         type: String,
         trim: true
     },

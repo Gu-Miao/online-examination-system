@@ -15,6 +15,8 @@ var userManagementRouter = require('./routes/userManagement');
 var questionManagementRouter = require('./routes/questionManagement');
 var paperManagementRouter = require('./routes/paperManagement');
 var examManagementRouter = require('./routes/examManagement');
+var examListRouter = require('./routes/examList');
+var examRouter = require('./routes/exam');
 
 // layer路由
 var userManagementNewRouter = require('./routes/userManagementLayer/new');
@@ -53,6 +55,8 @@ app.use('/userManagement', userManagementRouter);
 app.use('/questionManagement', questionManagementRouter);
 app.use('/paperManagement', paperManagementRouter);
 app.use('/examManagement', examManagementRouter);
+app.use('/examList', examListRouter);
+app.use('/exam', examRouter);
 
 // layer 路由
 app.use('/userManagementNew', userManagementNewRouter);

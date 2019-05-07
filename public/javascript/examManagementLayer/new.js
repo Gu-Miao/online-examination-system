@@ -2,16 +2,26 @@ $(function () {
 
     // 初始化页面
     getformDOM(layerData.examManagement);
+    laydate.render({
+        elem: '#date',
+        trigger: 'click'
+    });
+
+    laydate.render({
+        elem: '#time',
+        type: 'time',
+        range: true,
+        format: 'HH:MM',
+        trigger: 'click'
+    });
+
 });
 
 // 提交
 function submit(event) {
 
     let data = getInputData(event.data);
-    data.type === '考生' ? data.type = 0 : data.type = 1;
-
     loadingy();
-
     $.ajax({
         type: "post",
         url: window.location.href,

@@ -1,9 +1,10 @@
+const eid = getRequest(window.location.search).eid;
+
 $(function () {
 
     loadingy();
-
     // 初始化页面
-    getformDOM(layerData.userManagement);
+    getformDOM(layerData.examManagement);
 
     $.ajax({
         type: "post",
@@ -14,13 +15,10 @@ $(function () {
         success: function (data) {
             setTimeout(function () {
                 layer.closeAll();
-                console.log(data);
                 data = data[0];
-                data.type ? data.type = "教师" : data.type = "考生";
-                uid = data.uid;
                 for (let i in data) {
-                    if (!layerData.userManagement[i]) continue;
-                    (layerData.userManagement[i].menu) ? $(`#${i}`).html(data[i]) : $(`#${i}`).val(data[i]);
+                    if (!layerData.examManagement[i]) continue;
+                    $(`#${i}`).val(data[i]);
                 }
             }, 1000);
         },

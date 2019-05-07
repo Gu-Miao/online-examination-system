@@ -84,7 +84,7 @@ const layerData = {
         time: {
             title: '考试时间',
             col: 12,
-            time: true
+            timeRange: true
         }
     }
 };

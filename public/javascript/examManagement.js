@@ -9,7 +9,7 @@ $(function () {
     // 重置
     $('#reset').click(function () {
         $('#search-input').val('');
-        $('#user-type button span').html('用户类型');
+        $('#user-type button span').html('考试类型');
         $('#search-content button span').html('查询内容');
         $('#user-college button span').html('所属学院');
     });
@@ -110,7 +110,7 @@ function search() {
 }
 
 
-// 打开新增用户信息确认对话框
+// 打开新增考试信息确认对话框
 function openNewLayer() {
     formy('新增', '/examManagementNew', ['700px', '510px']);
 }
@@ -120,19 +120,19 @@ function openPreviewLayer() {
     formy('预览', `/examManagementPreview?eid=${$(this).parent().parent().children().eq(1).html()}`, ['700px', '420px']);
 }
 
-// 打开修改用户信息确认对话框
+// 打开修改考试信息确认对话框
 function openChangeLayer() {
     formy('修改', `/examManagementChange?eid=${$(this).parent().parent().children().eq(1).html()}`, ['700px', '510px']);
 }
 
 
-// 打开删除用户确认对话框
+// 打开删除考试确认对话框
 function openDeleteLayer() {
     var $delBtn = $(this);
-    cony('确定删除此用户吗？', deleteUser, $delBtn);
+    cony('确定删除此考试吗？', deleteUser, $delBtn);
 }
 
-// 删除用户
+// 删除考试
 function deleteUser($delBtn) {
 
     loadingy();
