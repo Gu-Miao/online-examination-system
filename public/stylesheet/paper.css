@@ -1,0 +1,237 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+
+    src: url('./fonts/glyphicons-halflings-regular.eot');
+    src: url('./fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('./fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('./fonts/glyphicons-halflings-regular.woff') format('woff'), url('./fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('./fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.glyphicon {
+    position   : relative;
+    top        : 1px;
+    display    : inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style : normal;
+    font-weight: normal;
+    line-height: 1;
+
+    -webkit-font-smoothing : antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-list-alt:before {
+    content: "\e032";
+}
+
+.glyphicon-list:before {
+    content: "\e056";
+}
+
+.glyphicon-check:before {
+    content: "\e067";
+}
+
+.glyphicon-edit:before {
+    content: "\e065";
+}
+
+.badge {
+    cursor: pointer;
+}
+
+.aa{
+    display: inline-block;
+    font-size: 1.1rem;
+    margin-left: .3rem;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color          : #404040;
+}
+
+a:hover {
+    color          : #000000;
+    text-decoration: underline;
+}
+
+img {
+    border        : 0px;
+    vertical-align: middle;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container ul li {
+    padding: 0;
+    margin : 0;
+}
+
+.exam_bj {
+    background: #dfdfdf;
+}
+
+.exam_top {
+    background    : #fafafa;
+    border-bottom : 1px solid #d1d1d1;
+    padding-top   : 10px;
+    padding-bottom: 10px;
+    position      : fixed;
+    width         : 100%;
+    top           : 0;
+    z-index       : 999;
+    font-size     : 14px;
+    box-shadow    : 0px 0px 5px #888888;
+    line-height   : 42px;
+}
+
+.exam_top .time {
+    font-size     : 20px;
+    color         : #ff0000;
+    vertical-align: middle;
+}
+
+.exam_top .green {
+    font-size     : 20px;
+    color         : #009944;
+    vertical-align: middle;
+}
+
+.exam_top img {
+    vertical-align: middle;
+}
+
+.exam_main {
+    margin-top: 80px;
+}
+
+.exam_page {
+    margin       : 0 auto;
+    background   : #ffffff;
+    min-height   : 400px;
+    border       : 1px solid #e8e8e8;
+    margin-bottom: 20px;
+}
+
+.exam_page_top {
+    border-bottom: 1px solid #e8e8e8;
+    background   : #fafafa;
+    padding      : 15px 30px;
+    font-size    : 14px;
+    line-height  : 24px;
+    color        : #666;
+}
+
+.exam_page_h1 {
+    font-size  : 30px;
+    text-align : center;
+    line-height: 70px;
+    margin-top : 10px;
+}
+
+.exam_page_block {
+    border          : 1px solid #dddddd;
+    border-top-width: 2px;
+    margin          : 20px;
+    margin-top      : 0;
+    color           : #aaa;
+    font-weight     : 600;
+    font-size       : .9rem;
+    padding         : .5rem;
+}
+
+.exam_page_h2 {
+    line-height: 40px;
+    font-size  : 1.5rem;
+    margin-left: 1.35rem;
+    color      : #999;
+}
+
+.exam_page_h2 .glyphicon {
+    font-size     : 1.2rem;
+}
+
+.exam_page_h2 .red {
+    display  : inline;
+    font-size: 18px;
+    color: red;
+}
+
+.exam_one_question {
+    margin-bottom: 30px;
+}
+
+.exam_one_question .exam_answer {
+    margin-left: 20px;
+}
+
+.exam_one_question .exam_analysis .score {
+    text-align: right;
+}
+
+.exam_one_question .exam_analysis .main {
+    background: #ebebeb;
+    padding   : 5px 15px;
+}
+
+.exam_one_question .exam_analysis .green {
+    color    : #009944;
+    font-size: 18px;
+}
+
+.exam_one_question .exam_analysis .red {
+    color    : red;
+    font-size: 18px;
+}
+
+.exam_one_question .line_input {
+    border       : none;
+    border-bottom: 1px solid #cccccc;
+    width        : 120px;
+    padding-left : 10px;
+    /* font-size : 16px; */
+}
+
+.exam_one_question .exam_answer textarea {
+    resize    : vertical;
+    min-height: 80px;
+}
+
+.exam_map {
+    position  : fixed;
+    top       : 80px;
+    width     : 170px;
+    text-align: center;
+}
+
+.exam_map .tit {
+    background : #616161;
+    font-size  : 18px;
+    font-weight: bold;
+    color      : #ffffff;
+    line-height: 50px;
+}
+
+.exam_map .main {
+    border    : 1px solid #eaeaea;
+    background: #ffffff;
+    padding   : 5px;
+}
+
+.exam_map .main li a {
+    line-height  : 40px;
+    margin-bottom: 5px;
+    background   : #f2f2f2;
+    display      : block;
+    font-size    : 14px;
+    cursor       : pointer;
+    user-select  : none;
+}
+
+.exam_map .main li a:hover {
+    text-decoration: none;
+    background     : #89b9df;
+    color          : #fff;
+}

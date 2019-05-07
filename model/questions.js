@@ -34,19 +34,11 @@ let QuestionSchema = new mongoose.Schema({
         answer: { // 问题答案
             type: String,
             trim: true,
-        },
-        resources: { // 额外资源
-            type: String,
-            trim: true
         }
     }],
     answer: { // 问题答案
         type: String,
         trim: true,
-    },
-    resources: { // 额外资源
-        type: String,
-        trim: true
     }
 }, { versionKey: false });
 

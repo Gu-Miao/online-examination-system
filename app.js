@@ -13,6 +13,8 @@ var studentHomeRouter = require('./routes/studentHome');
 var managerHomeRouter = require('./routes/managerHome');
 var userManagementRouter = require('./routes/userManagement');
 var questionManagementRouter = require('./routes/questionManagement');
+var paperManagementRouter = require('./routes/paperManagement');
+var examManagementRouter = require('./routes/examManagement');
 
 // layer路由
 var userManagementNewRouter = require('./routes/userManagementLayer/new');
@@ -21,6 +23,12 @@ var userManagementChangeRouter = require('./routes/userManagementLayer/change');
 var questionManagementNewRouter = require('./routes/questionManagementLayer/new');
 var questionManagementPreviewRouter = require('./routes/questionManagementLayer/preview');
 var questionManagementChangeRouter = require('./routes/questionManagementLayer/change');
+var paperManagementNewRouter = require('./routes/paperManagementLayer/new');
+var paperManagementPreviewRouter = require('./routes/paperManagementLayer/preview');
+var paperManagementChangeRouter = require('./routes/paperManagementLayer/change');
+var examManagementNewRouter = require('./routes/examManagementLayer/new');
+var examManagementPreviewRouter = require('./routes/examManagementLayer/preview');
+var examManagementChangeRouter = require('./routes/examManagementLayer/change');
 
 var app = express();
 
@@ -43,6 +51,8 @@ app.use('/studentHome', studentHomeRouter);
 app.use('/managerHome', managerHomeRouter);
 app.use('/userManagement', userManagementRouter);
 app.use('/questionManagement', questionManagementRouter);
+app.use('/paperManagement', paperManagementRouter);
+app.use('/examManagement', examManagementRouter);
 
 // layer 路由
 app.use('/userManagementNew', userManagementNewRouter);
@@ -51,6 +61,12 @@ app.use('/userManagementChange', userManagementChangeRouter);
 app.use('/questionManagementNew', questionManagementNewRouter);
 app.use('/questionManagementPreview', questionManagementPreviewRouter);
 app.use('/questionManagementChange', questionManagementChangeRouter);
+app.use('/paperManagementNew', paperManagementNewRouter);
+app.use('/paperManagementPreview', paperManagementPreviewRouter);
+app.use('/paperManagementChange', paperManagementChangeRouter);
+app.use('/examManagementNew', examManagementNewRouter);
+app.use('/examManagementPreview', examManagementPreviewRouter);
+app.use('/examManagementChange', examManagementChangeRouter);
 
 // 捕获404并转发到错误处理程序
 app.use(function (req, res, next) {

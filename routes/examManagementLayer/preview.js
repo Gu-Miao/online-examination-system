@@ -7,26 +7,21 @@ let app = express();
 app.use(jsonParser);
 
 // 引入数据库集合模型
-let paperModel = require('../../model/papers');
+let usersModel = require('../../model/users');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    res.render('paperManagementLayer/new');
+    res.render('userManagementLayer/preview');
 });
 
-router.post('/', (req, res, next) => {
-    let data = req.body;
-    data.questions = JSON.parse(data.questions);
-    console.log(data);
-    paperModel.insertMany(data, (err, docs) => {
+router.post('/', function (req, res, next) {
+    usersModel.find(req.body, (err, docs) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(docs);
             res.json(docs);
         }
-
-    });
+    })
 });
 
 module.exports = router;

@@ -7,12 +7,7 @@ function getformDOM(data) {
     }
 
     if (!isPreview) {
-        $c.append($(`
-            <div class="form-group col-12 mt-5 text-center">
-                <button class="btn btn-primary px-4">提交</button>
-            </div>
-        `));
-        $c.find('button.px-4').click(data, submit);
+        $('#sub').click(data, submit);
     }
 }
 

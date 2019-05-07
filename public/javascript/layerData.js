@@ -58,5 +58,33 @@ const layerData = {
             col: 12,
             password: true
         }
+    },
+    examManagement: {
+        cname: {
+            title: '对应课程',
+            col: 4
+        },
+        eid: {
+            title: '考试ID',
+            col: 4
+        },
+        cid: {
+            title: '课程ID号',
+            col: 4
+        },
+        pid: {
+            title: '使用试卷ID',
+            col: 4
+        },
+        date: {
+            title: '考试日期',
+            col: 8,
+            date: true
+        },
+        time: {
+            title: '考试时间',
+            col: 12,
+            time: true
+        }
     }
 };

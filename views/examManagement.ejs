@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>用户管理</title>
+    <title>试题管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/libraries/bootstrap/bootstrap.min.css">
@@ -58,47 +58,14 @@
                         <!-- 查询选项 -->
                         <div class="form-group w-50 mx-auto clearfix">
 
-                            <!-- 用户类型 -->
-                            <div class="dropdown float-left" id="user-type">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
-                                    <span>用户类型</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-item">考生</li>
-                                    <li class="dropdown-item">教师</li>
-                                </ul>
-                            </div>
-
                             <!-- 查询内容 -->
-                            <div class="dropdown float-left ml-3" id="search-content">
+                            <div class="dropdown float-left" id="search-content">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
                                     <span>查询内容</span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item">姓名</li>
-                                    <li class="dropdown-item">ID</li>
-                                </ul>
-                            </div>
-
-                            <!-- 所属学院 -->
-                            <div class="dropdown float-left ml-3 hide" id="user-college">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
-                                    <span>所属学院</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-item">文学院</li>
-                                    <li class="dropdown-item">历史学院</li>
-                                    <li class="dropdown-item">音乐学院</li>
-                                    <li class="dropdown-item">美术学院</li>
-                                    <li class="dropdown-item">数信学院</li>
-                                    <li class="dropdown-item">软件学院</li>
-                                    <li class="dropdown-item">体育学院</li>
-                                    <li class="dropdown-item">物理学院</li>
-                                    <li class="dropdown-item">化学学院</li>
-                                    <li class="dropdown-item">生物学院</li>
-                                    <li class="dropdown-item">旅游学院</li>
-                                    <li class="dropdown-item">经济学院</li>
-                                    <li class="dropdown-item">法学院</li>
+                                    <li class="dropdown-item">考试名</li>
+                                    <li class="dropdown-item">题目ID</li>
                                 </ul>
                             </div>
 
@@ -132,6 +99,6 @@
 <script src="/libraries/b4-table/b4-table.min.js"></script>
 <script src="/javascript/main.js"></script>
 <script src="/javascript/home.js"></script>
-<script src="/javascript/userManagement.js"></script>
+<script src="/javascript/examManagement.js"></script>
 
 </html>

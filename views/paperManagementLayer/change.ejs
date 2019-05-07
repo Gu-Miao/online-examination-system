@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑试卷</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/libraries/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/libraries/b4-table/b4-table.min.css">
+    <link rel="stylesheet" href="/stylesheet/home.css">
+    <link rel="stylesheet" href="/stylesheet/paper.css">
+</head>
+
+<body class="exam_bj">
+
+    <!-- 固定顶端 倒计时和按钮-->
+    <div class="exam_top">
+        <div class="container">
+            <div class="float-right">
+                <button id="submit" type="button" class="btn btn-success btn-lg">保存试卷</button>
+                <button id="exit" type="button" class="btn btn-danger btn-lg">退出</button>
+            </div>
+            <img src="/images/favicon.ico"><span class="aa">编辑试卷</span>
+
+        </div>
+    </div>
+    <div class="container exam_main">
+        <div class="row">
+            <div class="col-10">
+
+                <!--试卷内容-->
+                <div class="exam_page">
+
+                    <!-- 试题名 -->
+                    <div class="exam_page_h1 form-group col-12">
+                        <input type="text" id="paperName" class="form-control text-center" placeholder="试卷名">
+                    </div>
+
+                    <!-- 试题信息 -->
+                    <div class="exam_page_block form-group form-row">
+                        <div class="form-group col-6">
+                            <label>试卷ID</label>
+                            <input type="text" id="pid" class="form-control">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>对应课程</label>
+                            <input type="text" id="course" class="form-control">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>课程ID</label>
+                            <input type="text" id="cid" class="form-control">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>满分</label>
+                            <input type="text" id="fullMark" class="form-control" readonly>
+                        </div>
+                    </div>
+
+                    <!-- 单选题 -->
+                    <div id="sin">
+                        <div class="exam_page_h2">
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                            <b class="red">单选题</b>
+                            <button class="btn btn-sm btn-primary addq float-right mt-3 mr-4 py-0">新增</button>
+                            <span></span>
+                        </div>
+
+                        <div class="exam_page_block"></div>
+                    </div>
+
+                    <!-- 多选题 -->
+                    <div id="mut">
+                        <div class="exam_page_h2">
+                            <span class="glyphicon glyphicon-list"></span>
+                            <b class="red">多选题</b>
+                            <button class="btn btn-sm btn-primary addq float-right mt-3 mr-4 py-0">新增</button>
+                            <span></span>
+                        </div>
+
+                        <div class="exam_page_block"></div>
+                    </div>
+
+                    <!-- 判断题 -->
+                    <div id="jug">
+                        <div class="exam_page_h2">
+                            <span class="glyphicon glyphicon-check"></span>
+                            <b class="red">判断题</b>
+                            <button class="btn btn-sm btn-primary addq float-right mt-3 mr-4 py-0">新增</button>
+                            <span></span>
+                        </div>
+
+                        <div class="exam_page_block"></div>
+                    </div>
+
+                    <!-- 填空题 -->
+                    <div id="bnk">
+                        <div class="exam_page_h2">
+                            <span class="glyphicon glyphicon-check"></span>
+                            <b class="red">填空题</b>
+                            <button class="btn btn-sm btn-primary addq float-right mt-3 mr-4 py-0">新增</button>
+                            <span></span>
+                        </div>
+
+                        <div class="exam_page_block"></div>
+                    </div>
+
+                    <!-- 简答题 -->
+                    <div id="sht">
+                        <div class="exam_page_h2">
+                            <span class="glyphicon glyphicon-edit"></span>
+                            <b class="red">简答题</b>
+                            <button class="btn btn-sm btn-primary addq float-right mt-3 mr-4 py-0">新增</button>
+                            <span></span>
+                        </div>
+
+                        <div class="exam_page_block"></div>
+                    </div>
+
+                    <!--  综合题 -->
+                    <div id="cmp">
+                        <div class="exam_page_h2">
+                            <span class="glyphicon glyphicon-edit"></span>
+                            <b class="red">综合题</b>
+                            <button class="btn btn-sm btn-primary addq float-right mt-3 mr-4 py-0">新增</button>
+                            <span></span>
+                        </div>
+
+                        <div class="exam_page_block"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--快速定位-->
+            <div class="col-2" style="position: relative;">
+
+                <div class="exam_map">
+                    <div class="tit">题目列表</div>
+                    <div class="main">
+                        <ul>
+                            <li><a href="#sin">单选题</a></li>
+                            <li><a href="#mut">多选题</a></li>
+                            <li><a href="#jug">判断题</a></li>
+                            <li><a href="#bnk">填空题</a></li>
+                            <li><a href="#sht">简答题</a></li>
+                            <li><a href="#cmp">综合题</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script src="/libraries/jquery/jquery.min.js"></script>
+<script src="/libraries/layer/layer.js"></script>
+<script src="/libraries/popper.js/popper.min.js"></script>
+<script src="/libraries/bootstrap/bootstrap.min.js"></script>
+<script src="/libraries/b4-table/b4-table.min.js"></script>
+<script src="/javascript/main.js"></script>
+<script src="/javascript/home.js"></script>
+<script src="/javascript/paperManagementLayer/change.js"></script>
+
+</html>

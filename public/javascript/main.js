@@ -67,9 +67,6 @@ function cony(text, ycb, arg) {
         yes: function (index) {
             layer.close(index);
             ycb(arg);
-        },
-        no: function (index) {
-            layer.close(index);
         }
     });
 }

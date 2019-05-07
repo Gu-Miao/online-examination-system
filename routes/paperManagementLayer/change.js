@@ -11,22 +11,31 @@ let paperModel = require('../../model/papers');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    res.render('paperManagementLayer/new');
+    res.render('paperManagementLayer/change');
 });
 
 router.post('/', (req, res, next) => {
-    let data = req.body;
-    data.questions = JSON.parse(data.questions);
-    console.log(data);
-    paperModel.insertMany(data, (err, docs) => {
+    paperModel.find({ pid: req.body.pid }, (err, docs) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(docs);
             res.json(docs);
         }
-
     });
 });
+
+router.put('/', (req, res, next) => {
+    let data = req.body;
+    data.questions = JSON.parse(data.questions);
+    console.dir(data);
+    paperModel.updateOne({ pid: data.pid }, data, (err, docs) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(docs);
+        }
+    });
+});
+
 
 module.exports = router;
