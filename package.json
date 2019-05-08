@@ -13,6 +13,7 @@
     },
     "keywords": [
         "examination",
+        "exam",
         "Node.js",
         "express"
     ],
@@ -31,8 +32,5 @@
         "http-errors": "1.6.2",
         "mongoose": "5.4.20",
         "morgan": "1.9.1"
-    },
-    "devDependencies": {
-        "extend": "3.0.2"
     }
 }

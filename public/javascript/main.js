@@ -27,8 +27,8 @@ function dropdownSelect() {
 function loadingy() {
     layer.msg('正在加载...', {
         icon: 16,
-        shade: 0.01,
-        time: 0
+        shade: 0.1,
+        time: 0,
     });
 }
 
@@ -36,21 +36,21 @@ function loadingy() {
  * 信息框
  */
 function infoy(info, time) {
-    layer.msg(info, { time: time });
+    layer.msg(info, { time: time, shade: 0.3, shadeClose: true });
 }
 
 /**
  * ok信息框
  */
 function oky(ok, time) {
-    layer.msg(ok, { icon: 6, time: time });
+    layer.msg(ok, { icon: 6, time: time, shade: 0.3, shadeClose: true });
 }
 
 /**
  * 错误信息框
  */
 function erry(err, time) {
-    layer.msg(err, { icon: 5, time: time });
+    layer.msg(err, { icon: 5, time: time, shade: 0.3, shadeClose: true });
 }
 
 /**
@@ -64,6 +64,7 @@ function cony(text, ycb, arg) {
         btnAlign: 'c',
         btn: ["确定", "取消"],
         closeBtn: 0,
+        shade: 0.3,
         yes: function (index) {
             layer.close(index);
             ycb(arg);
@@ -78,6 +79,7 @@ function formy(title, src, area) {
         title: [title, "font-size: 16px;"],
         content: src,
         area: area,
+        shade: 0.3
     });
 }
 

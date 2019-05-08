@@ -28,7 +28,8 @@ body {
 }
 
 #teacherHome {
-    width: 1000px;
+    width: 95%;
+    max-width: 1000px;
     border-radius: 10px;
     background-color: #fff;
     margin: 20px auto;

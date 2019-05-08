@@ -10,6 +10,7 @@ app.use(jsonParser);
 // 引入数据库集合模型
 let examModel = require('../model/exams');
 let paperModel = require('../model/papers');
+let resultModel = require('../model/results');
 
 // 获取主页
 router.get('/', function (req, res) {
@@ -29,6 +30,19 @@ router.post('/', function (req, res) {
                     res.json(docs);
                 }
             });
+        }
+    });
+});
+
+router.put('/', function (req, res) {
+    let data = req.body;
+    data.cmp = JSON.parse(data.cmp);
+    data.sht = JSON.parse(data.sht);
+    resultModel.insertMany(data, (err, docs) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(docs);
         }
     });
 });

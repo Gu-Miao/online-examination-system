@@ -4,6 +4,8 @@ const eid = getRequest(window.location.search).eid;
 let ed = {};
 
 $(function () {
+
+    $('#submit').click(submitLayer);
     loadingy();
     $.ajax({
         type: "post",
@@ -188,7 +190,7 @@ let $multipleChoice = function () {
 
                 // 添加选项
                 let $optionClone = $option.clone();
-                $optionClone.find('label input').attr("value", `mut${i + 1}`);
+                $optionClone.find('label input').attr("value", `${j + 1}`);
                 $optionClone.find('label span').html(data[i].options[j]);
                 $dom.find('.exam_answer:eq(' + i + ')').append($optionClone);
             }
@@ -363,7 +365,7 @@ let $shortAnswer = function () {
 // 综合题
 let $comprehensive = function () {
     let $dom = $(`
-        <div id="sin">
+        <div id="cmp">
             <div class="exam_page_h2">
                 <span class="glyphicon glyphicon-list-alt"></span> 
                 <b class="red">综合题</b>
@@ -389,6 +391,7 @@ let $comprehensive = function () {
 
             // 添加题目
             let $questionClone = $question.clone();
+            $questionClone.addClass('cmpc')
             $questionClone.find('.exam_subject').html(i + 1 + "." + data[i].content + ' （' + data[i].score + '分）');
             $dom.find('.exam_page_block').append($questionClone);
 
@@ -423,7 +426,7 @@ let $comprehensive = function () {
                 </label>
             </div
         `);
-        let $qc = $question.clone();
+        let $qc = $question.clone(); $qc.attr('data-type', data.type);
         $qc.find('.exam_subject').html(`（${sn}）${data.content}`);
         for (let i = 0; i < data.options.length; ++i) {
             let $optionClone = $option.clone();
@@ -446,7 +449,7 @@ let $comprehensive = function () {
                 </label>
             </div
         `);
-        let $qc = $question.clone();
+        let $qc = $question.clone(); $qc.attr('data-type', data.type);
         $qc.find('.exam_subject').html(`（${sn}）${data.content}`);
         for (let i = 0; i < data.options.length; ++i) {
             let $optionClone = $option.clone();
@@ -461,7 +464,7 @@ let $comprehensive = function () {
         return $qc;
     }
     function crjug(data, no, sn) {
-        let $qc = $question.clone();
+        let $qc = $question.clone(); $qc.attr('data-type', data.type);
         $qc.find('.exam_subject').html(`（${sn}）${data.content}`);
         $qc.find('.exam_answer').append($(`
             <label class="radio-inline">
@@ -478,7 +481,7 @@ let $comprehensive = function () {
     }
     function crbnk(data, no, sn) {
         let $option = $('<input class="line_input" type="text" name=""><span> ， </span>');
-        let $qc = $question.clone();
+        let $qc = $question.clone(); $qc.attr('data-type', data.type);
         $qc.find('.exam_answer').prepend($('<span>答案：</span>'));
         $qc.find('.exam_subject').html(`（${sn}）${data.content}`);
 
@@ -494,7 +497,7 @@ let $comprehensive = function () {
         return $qc;
     }
     function crsht(data, no, sn) {
-        let $qc = $question.clone();
+        let $qc = $question.clone(); $qc.attr('data-type', data.type);
         $qc.find('.exam_answer').append('<textarea class="form-control"></textarea>');
         $qc.find('.exam_subject').html(`（${sn}）${data.content}`);
 
@@ -506,3 +509,192 @@ let $comprehensive = function () {
     };
 
 }();
+
+// 交卷提示
+function submitLayer() {
+    cony('确定交卷吗？', submit);
+}
+
+// 交卷
+function submit() {
+
+    let data = {
+        cmp: [],
+        uid: uid,
+        eid: eid,
+        res: 0,
+        name: ed.name
+    };
+
+    // 获取考生答案
+    let q = getAnswer();
+
+    // 自动评分
+    data.score = getMark(q);
+
+    for (let i = 0; i < ed.questions.sht.length; ++i) {
+        ed.questions.sht[i].examInput = q.sht[i];
+    }
+    data.sht = ed.questions.sht;
+
+    for (let i = 0; i < ed.questions.cmp.length; ++i) {
+        let cmp = ed.questions.cmp[i];
+        for (let j = 0; j < cmp.smallQuestions.length; ++j) {
+            let cmps = cmp.smallQuestions[j];
+            if (cmps.type == 4) {
+                cmps.examInput = q.cmp[i][j];
+                data.cmp.push(cmps);
+            }
+        }
+    }
+
+    console.log('data', data);
+    data.cmp = JSON.stringify(data.cmp);
+    data.sht = JSON.stringify(data.sht);
+
+    loadingy();
+    $.ajax({
+        type: "put",
+        url: window.location.pathname,
+        data: data,
+        dataType: "json",
+        success: function (data) {
+            setTimeout(function () {
+                layer.closeAll();
+                window.location.pathname = 'studentHome';
+            }, 1000);
+        },
+        error: function (err) {
+            setTimeout(function () {
+                layer.closeAll();
+                layer.msg('加载失败', { icon: 5 });
+                throw err;
+            }, 1000);
+        }
+    });
+}
+
+// 获取考生答案
+function getAnswer() {
+    let data = {
+        sin: [],
+        mut: [],
+        jug: [],
+        bnk: [],
+        sht: [],
+        cmp: []
+    }
+
+    for (let i = 0; i < $('#sin .exam_one_question').length; ++i) {
+        let val = $(`#sin .exam_one_question:eq(${i}) input:checked`).val();
+        if (val) {
+            data.sin[i] = val;
+        } else {
+            data.sin[i] = "";
+        }
+    }
+
+    for (let i = 0; i < $('#mut .exam_one_question').length; ++i) {
+        let $val = $(`#mut .exam_one_question:eq(${i}) input:checked`);
+        let val = '';
+        if ($val) {
+            for (let j = 0; j < $val.length; ++j) {
+                val += $val.eq(j).val();
+            }
+        }
+        data.mut[i] = val;
+    }
+
+    for (let i = 0; i < $('#jug .exam_one_question').length; ++i) {
+        let val = $(`#jug .exam_one_question:eq(${i}) input:checked`).val();
+        if (val) {
+            data.jug[i] = val;
+        } else {
+            data.jug[i] = "";
+        }
+    }
+
+    for (let i = 0; i < $('#bnk .exam_one_question').length; ++i) {
+        let $val = $(`#bnk .exam_one_question:eq(${i}) .line_input`);
+        let val = [];
+        for (let j = 0; j < $val.length; ++j) {
+            val.push($val.eq(j).val());
+        }
+        data.bnk[i] = val.join('$$$');
+    }
+
+    for (let i = 0; i < $('#sht .exam_one_question').length; ++i) {
+        data.sht[i] = $(`#sht .exam_one_question:eq(${i}) textarea`).val();
+    }
+
+    for (let i = 0; i < $('#cmp .cmpc').length; ++i) {
+        data.cmp[i] = [];
+        for (let j = 0; j < $('#cmp .cmpc').eq(i).find('.exam_one_question').length; ++j) {
+            let $q = $('#cmp .cmpc').eq(i).find('.exam_one_question').eq(j);
+            let type = $q.attr('data-type');
+            if (type == 0) {
+                let val = $q.find(`input:checked`).val();
+                if (val) {
+                    data.cmp[i][j] = val;
+                } else {
+                    data.cmp[i][j] = "";
+                }
+            } else if (type == 1) {
+                let $val = $q.find(`input:checked`);
+                let val = '';
+                if ($val) {
+                    for (let k = 0; k < $val.length; ++k) {
+                        val += $val.eq(k).val();
+                    }
+                }
+                data.cmp[i][j] = val;
+            } else if (type == 2) {
+                let val = $q.find(`input:checked`).val();
+                if (val) {
+                    data.cmp[i][j] = val;
+                } else {
+                    data.cmp[i][j] = "";
+                }
+            } else if (type == 3) {
+                let $val = $q.find(`.line_input`);
+                let val = [];
+                for (let k = 0; k < $val.length; ++k) {
+                    val.push($val.eq(k).val());
+                }
+                data.cmp[i][j] = val.join('$$$');
+            } else if (type == 4) {
+                data.cmp[i][j] = $q.find(`textarea`).val();
+            }
+        }
+    }
+
+    console.log(data);
+    return data;
+}
+
+// 计算得分
+function getMark(q) {
+    let questions = ed.questions;
+    let tA = ['sin', 'mut', 'jug', 'bnk', 'cmp'];
+    let score = 0;
+    for (let i = 0; i < tA.length; ++i) {
+        let qesA = questions[tA[i]];
+        for (let j = 0; j < qesA.length; ++j) {
+            if (qesA[j].type != 5) {
+                let answer = q[tA[i]][j];
+                if (answer == qesA[j].answer) score += Number(qesA[j].score);
+            } else {
+                for (let k = 0; k < qesA[j].smallQuestions.length; ++k) {
+                    let qq = qesA[j].smallQuestions[k];
+                    if (qq.type == 4) continue;
+
+                    let answer = q.cmp[j][k];
+                    if (answer == qq.answer) score += Number(qq.score);
+                }
+            }
+        }
+    }
+
+    console.log('score', score);
+    return score;
+}

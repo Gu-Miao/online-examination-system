@@ -1,0 +1,41 @@
+/* 内容部分 */
+.mark-content {
+    overflow: auto;
+    height: calc(100% - 50px);
+} .mark-content::after {
+    height: 50px;
+}
+
+/* 底部按钮 */
+.mark-footer {
+    height: 50px;
+    line-height: 50px;
+}
+
+.block_title {
+    background: url('/images/titleline.jpg') repeat-x bottom;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+
+.block_title .name {
+    background: url('/images/titleline.jpg') repeat-x bottom;
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0073aa;
+}
+
+.form-group textarea {
+    margin-bottom: 10px;
+    resize: vertical;
+    min-height: 80px;
+    max-height: 200px;
+}
+
+label {
+    margin-left: 1rem;
+}
