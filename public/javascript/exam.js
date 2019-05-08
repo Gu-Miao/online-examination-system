@@ -17,6 +17,14 @@ $(function () {
                 ed = data[0];
                 console.log(ed);
                 render();
+                setInterval(function () {
+                    if($('.time').html() == '00:00:00') {
+                        clearInterval();
+                        submit();
+                        return;
+                    }
+                    $('.time').html(reduceTime($('.time').html()));
+                }, 1 * 1000);
                 layer.closeAll();
             }, 1000);
         },
@@ -29,6 +37,46 @@ $(function () {
         }
     });
 });
+
+// 减少时间
+function reduceTime(timeStr) {
+
+    var hour = timeStr.split(':')[0];
+    var min = timeStr.split(':')[1];
+    var sec = timeStr.split(':')[2];
+
+    if (hour === "00" && min === "05" && sec === "00") {
+        infoy('距离考试结束还有5分钟，请抓紧时间！', 3 * 1000);
+    }
+
+    if (sec === "00") {
+        if (min === "00") {
+            if (hour === "00") {
+                return false;
+            } else {
+                min = "59";
+                sec = "59";
+                hour = reduceNumStr(hour);
+            }
+        } else {
+            sec = "59";
+            min = reduceNumStr(min);
+        }
+    } else {
+        sec = reduceNumStr(sec);
+    }
+
+    return hour + ":" + min + ":" + sec;
+}
+
+// 处理数字内容字符串
+function reduceNumStr(numStr) {
+
+    numStr = String(Number(--numStr));
+    if (numStr.length <= 1) numStr = "0" + numStr;
+
+    return numStr;
+}
 
 function render() {
     $paperName(ed).init();

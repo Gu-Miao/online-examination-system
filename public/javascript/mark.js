@@ -11,7 +11,7 @@ $(function () {
                 for (let i = 0; i < data.length; ++i) {
                     $('.container ul').append(`<li><a href="/markPaper?eid=${data[0].eid}&uid=${data[0].uid}" target="_self">${data[i].name}/${data[i].uid}</a></li>`);
                 }
-                layer.closeAll('loading');
+                layer.closeAll(layer.index - 1);
             }, 1000);
         },
         error: function (err) {
