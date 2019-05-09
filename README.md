@@ -201,7 +201,7 @@ let UsersSchema = mongoose.Schema({
 module.exports = mongoose.model('Users', UsersSchema, 'users');
 ```
 
-登录页的路由 studentHome.js
+用户管理页面的路由 userManagement.js
 
 ```js
 // 引入 express
