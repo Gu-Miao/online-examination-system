@@ -92,7 +92,7 @@ $(function () {
         submit();
     });
     $('#exit').click(function () {
-        window.location.pathname = '/paperManagement';
+        window.location.href = '/paperManagement';
     });
 });
 

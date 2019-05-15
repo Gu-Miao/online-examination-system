@@ -609,7 +609,7 @@ function submit() {
         success: function (data) {
             setTimeout(function () {
                 layer.closeAll();
-                window.location.pathname = 'studentHome';
+                window.location.href = '/studentHome';
             }, 1000);
         },
         error: function (err) {

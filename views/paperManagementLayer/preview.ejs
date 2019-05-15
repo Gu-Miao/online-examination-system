@@ -10,11 +10,49 @@
     <link rel="stylesheet" href="/libraries/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/libraries/b4-table/b4-table.min.css">
     <link rel="stylesheet" href="/stylesheet/home.css">
-    <link rel="stylesheet" href="/stylesheet/layerpage.css">
+    <link rel="stylesheet" href="/stylesheet/paper.css">
 </head>
 
-<body>
-    <div id="root" class="form-row w-100 p-1 m-0 mt-2 mb-5"></div>
+<body class="exam_bj">
+
+    <!-- 固定顶端 倒计时和按钮-->
+    <div class="exam_top">
+        <div class="container">
+            <div class="float-right">
+                <button id="exit" type="button" class="btn btn-danger btn-lg">退出</button>
+            </div>
+            <img src="/images/favicon.ico"><span class="aa">预览试卷</span>
+
+        </div>
+    </div>
+    <div class="container exam_main">
+        <div class="row">
+            <div class="col-10">
+
+                <!--试卷内容-->
+                <div class="exam_page"></div>
+            </div>
+
+            <!--快速定位-->
+            <div class="col-2" style="position: relative;">
+
+                <div class="exam_map">
+                    <div class="tit">题目列表</div>
+                    <div class="main">
+                        <ul>
+                            <li><a href="#sin">单选题</a></li>
+                            <li><a href="#mut">多选题</a></li>
+                            <li><a href="#jug">判断题</a></li>
+                            <li><a href="#bnk">填空题</a></li>
+                            <li><a href="#sht">简答题</a></li>
+                            <li><a href="#cmp">综合题</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 
 <script src="/libraries/jquery/jquery.min.js"></script>
@@ -24,8 +62,6 @@
 <script src="/libraries/b4-table/b4-table.min.js"></script>
 <script src="/javascript/main.js"></script>
 <script src="/javascript/home.js"></script>
-<script src="/javascript/layerData.js"></script>
-<script src="/javascript/layerPage.js"></script>
 <script src="/javascript/paperManagementLayer/preview.js"></script>
 
 </html>

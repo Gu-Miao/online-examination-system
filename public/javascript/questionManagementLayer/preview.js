@@ -99,7 +99,7 @@ function newMult($root, data) {
         $dom.find('.answer').parent().before($(`
             <div class="form-group col-12">
                 <label>选项${Number(i) + 1}</label>
-                <input type="text" class="form-control" value="${data.options[i]}">
+                <input type="text" class="form-control" value="${data.options[i]}" readonly>
             </div>
         `));
     }

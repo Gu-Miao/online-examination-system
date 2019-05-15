@@ -9,7 +9,7 @@ $(function () {
             setTimeout(function () {
                 if (!data.length) erry('暂无可阅试卷！', 3 * 1000);
                 for (let i = 0; i < data.length; ++i) {
-                    $('.container ul').append(`<li><a href="/markPaper?eid=${data[0].eid}&uid=${data[0].uid}" target="_self">${data[i].name}/${data[i].uid}</a></li>`);
+                    $('.container ul').append(`<li><a href="/markPaper?eid=${data[i].eid}&uid=${data[i].uid}" target="_self">${data[i].name}/${data[i].uid}</a></li>`);
                 }
                 layer.closeAll(layer.index - 1);
             }, 1000);

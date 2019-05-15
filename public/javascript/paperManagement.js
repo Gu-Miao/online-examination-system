@@ -115,7 +115,7 @@ function openNewLayer() {
 
 // 打开预览对话框
 function openPreviewLayer() {
-    window.location.href = window.location.origin + '/paperManagementPreview';
+    window.location.href = window.location.origin + `/paperManagementPreview?pid=${$(this).parent().parent().children().eq(1).html()}`;
 }
 
 // 打开修改用户信息确认对话框

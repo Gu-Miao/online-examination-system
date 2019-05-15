@@ -116,7 +116,7 @@ function submit() {
     $.ajax({
         type: "put",
         url: window.location.pathname,
-        data: submit,
+        data: data,
         dataType: "json",
         success: function (data) {
             setTimeout(function () {
