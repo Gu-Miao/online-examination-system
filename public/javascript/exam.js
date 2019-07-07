@@ -139,14 +139,14 @@ let $singleChoise = function () {
                 <span></span>
             </div>
             <div class="exam_page_block"></div>
-        </div
+        </div>
     `);
 
     let $question = $(`
         <div class="exam_one_question">
             <div class="exam_subject"></div>
             <div class="exam_answer"></div>
-        </div
+        </div>
     `);
 
     let $option = $(`
@@ -155,7 +155,7 @@ let $singleChoise = function () {
             <input type="radio" name="" value="">
             <span></span>
             </label>
-        </div
+        </div>
     `);
 
     // 初始化
@@ -218,7 +218,7 @@ let $multipleChoice = function () {
             <input type="checkbox" value="">
             <span></span>
             </label>
-        </div
+        </div>
     `);
 
     // 初始化
@@ -472,7 +472,7 @@ let $comprehensive = function () {
                 <input type="radio" name="" value="">
                 <span></span>
                 </label>
-            </div
+            </div>
         `);
         let $qc = $question.clone(); $qc.attr('data-type', data.type);
         $qc.find('.exam_subject').html(`（${sn}）${data.content}`);
@@ -495,7 +495,7 @@ let $comprehensive = function () {
                 <input type="checkbox" value="">
                 <span></span>
                 </label>
-            </div
+            </div>
         `);
         let $qc = $question.clone(); $qc.attr('data-type', data.type);
         $qc.find('.exam_subject').html(`（${sn}）${data.content}`);
