@@ -1,5 +1,5 @@
 # 基于Node.js的在线考试系统
-https://github.com/Gu-Miao/online_examination_system.git
+https://github.com/Gu-Miao/online-examination-system.git
 
 # 开发背景
 

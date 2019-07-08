@@ -1,5 +1,5 @@
 {
-    "name": "online_examination_system",
+    "name": "online-examination-system",
     "version": "0.0.1",
     "description": "A examination system online based on Node.js",
     "main": "./bin/www",
@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Gu-Miao/online_examination_system.git"
+        "url": "git+https://github.com/Gu-Miao/online-examination-system.git"
     },
     "keywords": [
         "examination",
@@ -20,9 +20,9 @@
     "author": "HikamaiC",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Gu-Miao/online_examination_system/issues"
+        "url": "https://github.com/Gu-Miao/online-examination-system/issues"
     },
-    "homepage": "https://github.com/Gu-Miao/online_examination_system#readme",
+    "homepage": "https://github.com/Gu-Miao/online-examination-system#readme",
     "dependencies": {
         "body-parser": "1.18.3",
         "cookie-parser": "1.4.3",
